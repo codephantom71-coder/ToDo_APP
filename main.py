@@ -5,7 +5,7 @@ from tkinter import font
 # Add task function
 def add_task(event, paned_W, fenetre):
     print("Add boutton")
-    paned_W.add(Checkbutton(fenetre, text='test', background= "black"))
+    paned_W.add(Checkbutton(fenetre, text='test',))
 
 # Get the position of the mouse
 def get_position(event):
@@ -44,7 +44,7 @@ def main():
     p.grid(row = 1, column=0,columnspan = 2, sticky= 'ewns', padx = 5)
 
     # Connect function with 'add buton'
-    fenetre.bind("<Button-1>", lambda event: add_task(event, p, fenetre))
+    bouton.bind("<Button-1>", lambda event: add_task(event, p, fenetre))
 
 
     # Loop

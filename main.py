@@ -11,6 +11,12 @@ def add_task(event, paned_W, fenetre):
 def get_position(event):
     print(event.x, event.y)
 
+def get_text_bar(event, bar):
+    print("get_text_bar function is running")
+    result = bar.get()
+    print(result)
+
+
 #Main function 
 def main():
 # Creation of the window 
@@ -43,8 +49,11 @@ def main():
     bouton.grid(row = 0, column = 1, padx = 10)
     p.grid(row = 1, column=0,columnspan = 2, sticky= 'ewns', padx = 5)
 
-    # Connect function with 'add buton'
+    # Bind function with 'add buton'
     bouton.bind("<Button-1>", lambda event: add_task(event, p, fenetre))
+
+    # Bind function with 'bar_write'
+    bar_write.bind("<Return>", lambda event: get_text_bar(event, bar_write))
 
 
     # Loop

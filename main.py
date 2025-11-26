@@ -3,18 +3,27 @@ from tkinter import *
 from tkinter import font
 
 # Add task function
-def add_task(event, paned_W, fenetre):
+def add_task(event, paned_W, fenetre, bar):
+    # Get the value of Entry, store in a variable and after delete the text to input some new task 
+    def get_text_bar(bar):
+        print("get_text_bar function is running")
+        txt = bar.get()
+        print(result)
+        bar.delete(0, END)
+        return txt 
+    result = get_text_bar(bar)
     print("Add boutton")
     paned_W.add(Checkbutton(fenetre, text='test',))
+    result = bar.get()
+    print(result)
+    bar.delete(0, END)
+
 
 # Get the position of the mouse
 def get_position(event):
     print(event.x, event.y)
 
-def get_text_bar(event, bar):
-    print("get_text_bar function is running")
-    result = bar.get()
-    print(result)
+
 
 
 #Main function 
@@ -50,7 +59,7 @@ def main():
     p.grid(row = 1, column=0,columnspan = 2, sticky= 'ewns', padx = 5)
 
     # Bind function with 'add buton'
-    bouton.bind("<Button-1>", lambda event: add_task(event, p, fenetre))
+    bouton.bind("<Button-1>", lambda event: add_task(event, p, fenetre, bar_write))
 
     # Bind function with 'bar_write'
     bar_write.bind("<Return>", lambda event: get_text_bar(event, bar_write))
